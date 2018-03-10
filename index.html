@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="main_div">
+            <!-- Start -->
+            <div class="main_game_start">
+                <div class="main_game_main">
+                    <div class="top">
+                        <code>
+                            <p>游戏规则：</p>
+                            <p>(Rules of the game:)</p>
+                            <p class="p-small">1.可按开始游戏按钮开始游戏（或按‘k’）。</p>
+                            <p class="p-small">can start the game according to the start game button (or press' k ').</p>
+                            <p>2.游戏期间按上下左右键即可移动飞行(飞机随机)，初始燃料为10，低于0游戏结束。</p>
+                            <p class="p-small">during the game, you can move flying (random) by the upper and lower keys of the game. The initial fuel is 10, which is lower than the end of the 0 game.</p>
+                            <p>3.收集飞机飞行时所需的燃料（初始为10,每个+10）</p>
+                            <p class="p-small">the fuel required to collect aircraft (initial 10, each +10)</p>
+                            <p>4.收集排名所需的星星数（初始为0,每个+1）</p>
+                            <p class="p-small">the number of stars needed to collect the ranking (initial 0, each +1)</p>
+                            <p>5.游戏期间可按'r'健再次重新开始</p>
+                            <p class="p-small">game can be restarted by'r'health</p>
+                        </code>
+                        <span></span>
+                    </div>
+                    <div class="bottom">
+                        <div>
+                            开始我的游戏人生吧
+                            <br>
+                            Start my game life
+                            <div id="go">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="id-canvas" width="1024" height="768">
+            </canvas>
+            <!-- music  -->
+            <audio src="sound/background.mp3" autoplay="autoplay" loop="loop" id="game-audio"></audio>
+            <!--  控制 -->
+            <div class="main_input" >
+                <input type="button" value="+" style="font-size:20px;" id="set-font-jia">
+                <input type="button" value="-" style="font-size:20px;" id="set-font-jian">
+                <input type="button" value="Stop" id="set-game-stop">
+                <input type="button" value="Go" id="set-game-go">
+                <input type="button" value="Music"  id="set-game-music">
+            </div>
+            <!-- END  -->
+            <div class="main_zhe">
+            </div>
+            <div class="main_game_over">
+                <div>
+                    <span>Game Over! Unfortunately</span>
+                    <form action="/" method="get">
+                        <label for="username">Your Name:
+                            <input type="text" id="username">
+                        </label>
+                        <hr>
+                        <label for="">
+                            <input type="button" value="Continue" id="send">
+                            <input type="button" value="Reset" id="reset">
+                        </label>
+                    </form>
+                </div>
+            </div>
+            <!-- 排名 -->
+            <div class="ranking">
+                <span>RanKing</span>
+                <table id="ranking-table">
+                    <thead>
+                        <tr>
+                            <th>ranking</th>
+                            <th>name</th>
+                            <th>time</th>
+                            <th>star</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td>1</td>
+                            <td>LIN</td>
+                            <td>10</td>
+                            <td>10s</td>
+                        </tr> -->
+                    </tbody>
+                </table>
+                <hr>
+                <div class="logo">
+                    <img src="SkyAngel.png" alt="" >
+                </div>
+                <div class="reset-main">
+                    <input type="button" value="Reset" id="reset" class="ranking-reset">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div>
+        <input type="button" value="cmd" id="cmd">
+    </div> -->
+<!--  jq-->
+<script src="jq/jquery-migrate-1.4.1.min.js" charset="utf-8"></script>
+
+    <script src="lin_game.js"></script>
+    <script src="lin_drawimage.js"></script>
+    <script src="bird.js" charset="utf-8"></script>
+    <script src="player.js" charset="utf-8"></script>
+    <script src="cloud.js" charset="utf-8"></script>
+    <script src="parachute.js" charset="utf-8"></script>
+    <script src="debug.js" charset="utf-8"></script>
+    <script src="star.js" charset="utf-8"></script>
+    <script src="scene.js" charset="utf-8"></script>
+    <script src="scene_end.js" charset="utf-8"></script>
+    <script src="scene_start.js" charset="utf-8"></script>
+<script src="main.js"></script>
+
+<script type="text/javascript">
+// $('#cmd').click(function () {
+//     $.ajax({
+//         type: 'POST',
+//         data: {name:'1',time:'2',stars:'3'},
+//         url: 'php/register.php',
+//         success: function (res) {
+//             window.result = JSON.parse(res)
+//             GameRanking(window.result)
+//         },
+//         error: function(err) {
+//             log(JSON.stringify(err))
+//         },
+//     })
+// })
+// // 排名
+// let GameRanking = (result) => {
+//     let r = result
+//     let tbody = e('#ranking-table > tbody')
+//
+//     // 随便拿个来循环tr
+//     let k = Object.keys(r[0]).length || 1
+//
+//     for(let i=0; i<r.length; i++) {
+//         let InnerHTML = r[i]
+//         let tr = document.createElement('tr')
+//         let k = Object.keys(r[0]).length
+//         for (let j=0; j<k; j++) {
+//             let td = document.createElement('td')
+//             tr.appendChild(td)
+//             td.innerHTML = Object.values(InnerHTML)[j]
+//             tbody.appendChild(tr)
+//         }
+//     }
+//
+// }
+
+</script>
+
+</body>
+</html>

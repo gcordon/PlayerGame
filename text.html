@@ -1,0 +1,44 @@
+<body>
+    <canvas id = "palette" width="400px" height="400px">
+        您的浏览器不支持Canvas标签，请升级或更换浏览器
+    </canvas>
+</body>
+</html>
+<script>
+    var ctx = document.querySelector("#palette").getContext("2d");
+
+    let p1 = {
+        x: 250,
+        y: 20,
+    }
+    let p2 = {
+        x: 250,
+        y: 40,
+    }
+    ctx.beginPath();
+    ctx.moveTo(20,20)
+    ctx.lineTo(200,20)
+    ctx.arcTo(p1.x, p1.y, p2.x, p2.y, 50)
+    ctx.stroke()
+    ctx.closePath()
+
+
+    ctx.beginPath()
+    ctx.moveTo(20,100)
+    ctx.lineTo(200,100)
+    ctx.arcTo(250, 100, 250, 50, 50)
+    ctx.stroke()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.lineWidth = '9'
+    ctx.strokeStyle = 'red'
+    ctx.moveTo(200,100)
+    ctx.lineTo(20,100)
+    ctx.stroke()
+    ctx.closePath()
+
+
+
+
+</script>

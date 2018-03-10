@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <pre>
+        TEST PROJECT
+        WEB DESIGN
+        Server Side A
+        WSC2017_TP17_SERVER_SIDE_A_PRE_EN
+        Submitted by:
+        Hantze Sudarma ID [Lead Expert]
+        Diyaa BenKhadra AE
+        Zoltán Sisák HU
+        Zhanar Kubzhasarova KZ
+        Settachok Saennam TH
+        Manuel Schaffner CH
+        Bin Mu CN
+        Seung Lyul Ryu KR
+        Ilya Belyakov RU
+        Chorng-Shiuh Koong TW
+        Jaafar Mohammed Almoadhen BH
+        WSC2017_TP17_SERVER_SIDE_A_pre_ENINTRODUCTION
+        New startup company would like to create flight and hotel booking system website. This website should help
+        user to book the flight and hotel. They ask you to create a website with separate architecture, server and
+        client side. They’re planning to create a mobile version later, so they’re asking you to build this website with
+        the web service architecture.
+        Development phase will be separate into two phase. First phase is creating backend web service and the
+        second phase is to create front end website. The server should serve API only. There should be no any visual
+        interface output. The only interface is the Application Programming Interface (API).
+        DESCRIPTION OF PROJECT AND TASKS
+        The description for this module will be listed below. Your first task is to create a restful web service API that
+        could be used by the front end to communicate the data.
+        The server takes application/json request. Response should also be in JSON format. All response should
+        follows with a correct status code—Success, Not Found and Bad Request. No authentication is required for
+        all the API calls.
+        Data Type
+        • All “date” should return in String
+        • All “ID” should return in integer
+        • All fields without specifying the type is string.
+        Web Service
+        The followings are the list of web service that we need:
+        1. Airlines
+        The API allows airlines company creation, flight creation, update, delete, flights query and booking of
+        flights.
+        a. Create Airline company
+        Requested parameters:
+        - Airline name
+        - City name, which the airline is based at.
+        Response result:
+        - Message
+        b. Create airline flight
+        Requested parameters:
+        - From date
+        - To date
+        - Flight time
+        - Arrival time
+        - Departure city name
+        - Destination city name
+        - Airline ID
+        - Fare price (integer)
+        Response Flight
+        - Flight ID
+        - All the fields in request parameters
+        WSC2015_TP17_SERVER_SIDE_A_pre_EN
+        Version: 1.0
+        Date: 15.07.17
+        2 of 5c.
+        Query/Get airline flights list
+        Requested parameters:
+        - Departure date
+        - Departure city name
+        - Destination city name
+        Response results:
+        Array of flights
+        - Flight ID
+        - Flight code
+        - Departure time
+        - Arrival time
+        - Airline ID
+        - Airline Name
+        - All fields from Requested parameters
+        d. Book a flight
+        Requested parameter:
+        - Flight type (One way only or with return flight)
+        - Depart date
+        - Depart time
+        - Return date (if not one way flight)
+        - Return time (if not one way flight)
+        - Departure city name
+        - Destination city name
+        - Flight class (Economy, Business or First class)
+        - Total adults
+        - Total children
+        - Array of passengers’ first name and last name.
+        Response result
+        - Flight Booking ID
+        - All fields from Requested parameters
+        e. Update airline flight
+        Requested parameters:
+        - Flight ID
+        - From date (Optional)
+        - To date (Optional)
+        - Flight time (Optional)
+        - Arrival time (Optional)
+        - Departure city name (Optional)
+        - Destination city name (Optional)
+        - Airline ID (Optional)
+        - Fare price (Optional)
+        Response result:
+        - All fields from given requested parameters
+        f.
+        Delete airline flight
+        Requested parameter:
+        - Flight ID
+        Response result:
+        - 404 not found status when operation success.
+        WSC2015_TP17_SERVER_SIDE_A_pre_EN
+        Version: 1.0
+        Date: 15.07.17
+        3 of 52. Hotel
+        a. Create a hotel
+        Requested parameter:
+        - Hotel name
+        - City name
+        - Description (Long text)
+        - Array of room types, each type includes a name and a price
+        - List of image URLs
+        - Room capacity
+        Response result:
+        - Hotel ID
+        - All fields from request parameters
+        b. Query/Get hotels list
+        Requested parameter:
+        - City name
+        Response result:
+        Array of hotels.
+        - Hotel ID
+        - Hotel name
+        - City name
+        - Description
+        - Array of room types with name and price
+        - Array of image URLs
+        Room capacity
+        c. Book a hotel
+        Requested parameter:
+        - Check in date
+        - Check out date
+        - Hotel ID
+        - Total guests
+        - Array of guest’s first name and last name.
+        - Total rooms
+        - Name of room type
+        Response result:
+        - Hotel booking ID
+        - All fields from request parameters
+        d. Update hotel
+        Requested parameter:
+        - Hotel ID
+        - Hotel name (Optional)
+        - City name (Optional)
+        - Description (Optional)
+        - Array of room types (Optional)
+        - List of image URLs (Optional)
+        - Capacity (Optional)
+        Response result:
+        - Message
+        - All fields from given request parameters.
+        e. Delete hotel
+        Requested parameter:
+        - Hotel ID
+        Response result:
+        WSC2015_TP17_SERVER_SIDE_A_pre_EN
+        Version: 1.0
+        Date: 15.07.17
+        4 of 5- 404 not found status
+        3. Transaction
+        a. Create a transaction
+        Requested parameter:
+        - User’s title (Mr, Mrs, Miss, Dr)
+        - User’s first name
+        - User’s last name
+        - Email address
+        - Phone number
+        - Payment method (transfer, credit card or paypal)
+        - Credit card’s name (if pay by credit card)
+        - Credit card’s number (if pay by credit card)
+        - CCV (if pay by credit card)
+        Response result:
+        - Payment status to indicate success or error
+        - Transaction ID
+        Those are the list that required by the company in the first phase.
+        INSTRUCTIONS TO THE COMPETITOR
+        Save the files of your application in directory on the server called "XX_Server_Side_A", where XX is your
+        country code.
+        You should export the latest SQL schema as a MySQL dump file.
+        FILES PROVIDED
+        ITEM DESCRIPTION
+        Laravel PHP Framework incl. short
+        documentation/cheat sheet Web Design Competitor can choose which one of these frameworks he
+        wants to use. Installation will be done on the familiarization-day (C-2)
+        Yii PHP Framework incl. short
+        documentation/ Web Design Competitor can choose which one of these frameworks he
+        wants to use. Installation will be done on the familiarization-day (C-2)
+
+    </pre>
+</body>
+</html>
